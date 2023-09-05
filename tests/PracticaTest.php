@@ -7,14 +7,14 @@ final class PracticaTest extends TestCase
 {
     public function testFilesExistence(): void
     {
-        $this->assertFileExists('index.php');
+        $this->assertFileExists('formulario.php');
         $this->assertFileExists('store.php');
         $this->assertFileExists('conexion.php');
     }
 
     public function testForm(): void
     {
-        $form = file_get_contents('index.php');
+        $form = file_get_contents('formulario.php');
         $this->assertStringContainsStringIgnoringCase('action="store.php"', $form, $message = 'No se ha definido action');
         $this->assertStringContainsStringIgnoringCase('method="post"', $form, $message = 'No está asignado el método post');
     }
@@ -35,6 +35,10 @@ final class PracticaTest extends TestCase
                 'form_params' => [
                     'nombre' => 'Prueba Nombre',
                     'correo' => 'prueba@test.com',
+                    'genero' => 'femenino',
+                    'contraseña' => 'contraseña',
+                    'comentario' => 'comentario',
+                    'ciudad' => 'ciudad',
                 ]
             ]);
 
